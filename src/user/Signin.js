@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 
 import Layout from "../core/Layout";
-import { signin } from "../auth";
+import { signin, authenticate } from "../auth";
 
 const Signin = () => {
   const [values, setValues] = useState({
@@ -30,9 +30,11 @@ const Signin = () => {
           redirectToReferrer: false,
         });
       } else {
-        setValues({
-          ...values,
-          redirectToReferrer: true,
+        authenticate(data, () => {
+          setValues({
+            ...values,
+            redirectToReferrer: true,
+          });
         });
       }
     });
