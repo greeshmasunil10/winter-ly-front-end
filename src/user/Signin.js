@@ -25,12 +25,9 @@ const Signin = () => {
     setValues({ ...values, error: false, loading: true });
     signin({ email, password }).then((data) => {
       if (data.error) {
-        setValues({
-          ...values,
-          error: data.error,
-          redirectToReferrer: false,
-        });
+        setValues({ ...values, error: data.error, loading: false });
       } else {
+        // console.log("******88errorL", data.error);
         authenticate(data, () => {
           setValues({
             ...values,
