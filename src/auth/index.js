@@ -19,7 +19,6 @@ export const signup = (user) => {
 };
 
 export const signin = (user) => {
-  console.log("sending", JSON.stringify(user));
   return fetch(`${API}/signin`, {
     method: "POST",
     headers: {

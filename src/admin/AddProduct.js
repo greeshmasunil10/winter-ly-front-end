@@ -128,13 +128,14 @@ const AddProduct = () => {
         <select onChange={handleChange("category")} className="form-control">
           <option>Please select</option>
           {categories &&
-            categories.map((cat, index) => {
-              <option key={index} values={cat._id}>
-                {cat.name}
-              </option>;
-            })}
+            categories.map((c, i) => (
+              <option key={i} value={c._id}>
+                {c.name}
+              </option>
+            ))}
         </select>
       </div>
+
       <div className="form-group">
         <label className="text-muted">Quantity</label>
         <input
@@ -156,13 +157,40 @@ const AddProduct = () => {
     </form>
   );
 
+  const showError = () => (
+    <div
+      className="alert alert-danger"
+      style={{ display: error ? "" : "none" }}
+    >
+      {error}
+    </div>
+  );
+  const showSuccess = () => (
+    <div
+      className="alert alert-info"
+      style={{ display: createdProduct ? "" : "none" }}
+    >
+      <h2>{`${createdProduct}`} is created</h2>
+    </div>
+  );
+  const showLoading = () =>
+    loading && (
+      <div className="alert alert-success">
+        <h2>Loading...</h2>
+      </div>
+    );
   return (
     <Layout
       title="Admin Dashboard"
       description={`Hello ${user.name}! Ready to add a new product?`}
     >
       <div className="row">
-        <div className="col-md-8 offset-md-2">{newPostForm()}</div>
+        <div className="col-md-8 offset-md-2">
+          {showLoading()}
+          {showSuccess()}
+          {showError()}
+          {newPostForm()}
+        </div>
       </div>
     </Layout>
   );

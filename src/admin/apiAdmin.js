@@ -40,8 +40,8 @@ export const getCategories = () => {
   return fetch(`${API}/categories`, {
     method: "GET",
   })
-    .then((data) => {
-      return data.json();
+    .then((response) => {
+      return response.json();
     })
     .catch((err) => console.log(err));
 };
