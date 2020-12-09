@@ -43,7 +43,8 @@ const Product = (props) => {
             <Card
               product={product}
               showViewProductButton={false}
-              fullImage={true}
+              customImage={true}
+              customImageSize={500}
             />
           )}
         </div>
