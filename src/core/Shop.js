@@ -100,12 +100,12 @@ const Shop = () => {
 
   return (
     <Layout
-      title="Winter Store"
-      description="Start Shopping"
+      title="Shop Page"
+      description="Check out our products"
       className="container-fluid"
     >
       <div className="row">
-        <div className="col-4">
+        <div className="col-lg-2 col-sm-6">
           <h4>Filter by Category</h4>
           <ul>
             <Checkbox
@@ -114,7 +114,7 @@ const Shop = () => {
             />
           </ul>
           <h4>Filter by Price</h4>
-          <div>
+          <div className="mb-3">
             <RadioBox
               prices={prices}
               handleFilters={(filters) => handleFilters(filters, "price")}
@@ -123,17 +123,19 @@ const Shop = () => {
         </div>
         {/* <div className="col-4">categories.name</div> */}
         {/* <div className="col-8">{JSON.stringify(filteredResults)}</div> */}
-        <div className="col-8">
-          <h2 className="mb-4">Products</h2>
-          <div className="row">
-            {filteredResults.map((prod, index) => (
-              <div key={index} className="col-4 mb-3">
-                <Card product={prod} />
-              </div>
-            ))}
+        <div className="col-lg-10 col-sm-4">
+          <div className="container">
+            <h2 className="mb-4">Products</h2>
+            <div className="row">
+              {filteredResults.map((prod, index) => (
+                <div key={index} className="col-lg-4 col-sm ">
+                  <Card product={prod} />
+                </div>
+              ))}
+            </div>
+            <hr />
+            {loadMoreButton()}
           </div>
-          <hr />
-          {loadMoreButton()}
         </div>
       </div>
     </Layout>

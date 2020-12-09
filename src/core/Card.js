@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Showimage from "./ShowImage";
 import moment from "moment";
 
-const Card = ({ product, showViewProductButton = true }) => {
+const Card = ({ product, showViewProductButton = true, fullImage = false }) => {
   const viewProductButton = () => {
     return (
       showViewProductButton && (
@@ -32,7 +32,7 @@ const Card = ({ product, showViewProductButton = true }) => {
     <div className="card">
       <div className="card-header name">{product.name}</div>
       <div className="card-body">
-        <Showimage item={product} url="product" />
+        <Showimage item={product} url="product" fullImage={fullImage} />
         <p className="lead mt-2">{product.description.substring(0, 100)}</p>
         <p className="black-10">${product.price}</p>
         <p className="black-9">
