@@ -71,7 +71,7 @@ const Orders = () => {
 
   const showStatus = (order) => (
     <div className="form-group">
-      <h3 className="mark mb-4">Status:{order.status}</h3>
+      <h3 className="mark mb-4">{order.status}</h3>
       <select
         className="form-control"
         onChange={(e) => {

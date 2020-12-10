@@ -102,7 +102,7 @@ const Card = ({
     return quantity > 0 ? (
       <span className="badge badge-pill badge-primary">In Stock</span>
     ) : (
-      <span className="badge badge-pill badge-primary"> Out of Stock</span>
+      <span className="badge badge-pill badge-danger"> Out of Stock</span>
     );
   };
 
