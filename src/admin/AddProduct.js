@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Layout from "../core/Layout";
 import { isAuthenticated } from "../auth/index";
 import { createProduct, getCategories } from "./apiAdmin";
-import AddCategory from "./AddCategory";
 
 const AddProduct = () => {
   const [values, setValues] = useState({

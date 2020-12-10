@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
-import { getBraintreeClientToken, processPayment } from "./apiCore";
+import {
+  getBraintreeClientToken,
+  processPayment,
+  createOrder,
+} from "./apiCore";
 import DropIn from "braintree-web-drop-in-react";
 import { emptyCart } from "./cartHelpers";
 
-const Checkout = ({ products }) => {
+const Checkout = ({ products, setRun = (f) => f, run = undefined }) => {
   const [data, setData] = useState({
     loading: false,
     success: false,
@@ -70,12 +74,22 @@ const Checkout = ({ products }) => {
         processPayment(userId, token, paymentData)
           .then((response) => {
             setData({ ...data, success: response.success });
-            emptyCart(() => {
-              console.log("payemnt success and empty cart");
-              setData({ ...data, loading: false });
+            //create order
+
+            const createOrderData = {
+              products: products,
+              transaction_id: response.transaction.id,
+              amount: response.transaction.amount,
+              address: data.address,
+            };
+            createOrder(userId, token, createOrderData).then((response) => {
+              emptyCart(() => {
+                setRun(!run);
+                console.log("payemnt success and empty cart");
+                setData({ ...data, loading: false, success: true });
+              });
             });
             //empty cart
-            //create order
           })
           .catch((error) => {
             console.log("Error", error);
@@ -87,11 +101,23 @@ const Checkout = ({ products }) => {
         setData({ ...data, error: error.message });
       });
   };
+  const handleAddress = (event) => {
+    setData({ ...data, address: event.target.value });
+  };
 
   const showDropIn = () => (
     <div onBlur={() => setData({ ...data, error: "" })}>
       {data.clientToken !== null && products.length > 0 ? (
         <div>
+          <div className="form-group mb-3">
+            <label className="text-muted">Delivery address:</label>
+            <textarea
+              onChange={handleAddress}
+              className="form-control"
+              // value={data.address}
+              placeholder="Enter your Delivery address here"
+            />
+          </div>
           <DropIn
             options={{
               authorization: data.clientToken,

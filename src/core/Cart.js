@@ -9,10 +9,11 @@ import { Link } from "react-router-dom";
 
 const Cart = () => {
   const [items, setItems] = useState([]);
+  const [run, setRun] = useState(false);
 
   useEffect(() => {
     setItems(getCart());
-  }, [items]);
+  }, [run]);
 
   const showItems = () => {
     return (
@@ -21,10 +22,13 @@ const Cart = () => {
         <hr />
         {items.map((product, index) => (
           <Card
+            key={index}
             product={product}
             showAddtoCartButton={false}
             quantityUpdate={true}
             showRemoveProductButton={true}
+            setRun={setRun}
+            run={run}
           />
         ))}
       </div>
@@ -52,7 +56,7 @@ const Cart = () => {
         <div className="col-6">
           <h2 className="mb-4">Your cart summary</h2>
           <hr />
-          <Checkout products={items} />
+          <Checkout products={items} setRun={setRun} run={run} />
         </div>
       </div>
     </Layout>
