@@ -27,7 +27,6 @@ const Signin = () => {
       if (data.error) {
         setValues({ ...values, error: data.error, loading: false });
       } else {
-        // console.log("******88errorL", data.error);
         authenticate(data, () => {
           setValues({
             ...values,
@@ -98,7 +97,7 @@ const Signin = () => {
       {showError()}
       {signinForm()}
       {redirectUser()}
-      {JSON.stringify(values)}
+      {/* {JSON.stringify(values)} */}
     </Layout>
   );
 };

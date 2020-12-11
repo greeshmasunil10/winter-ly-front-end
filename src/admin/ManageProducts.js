@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Layout from "../core/Layout";
 import { isAuthenticated } from "../auth/index";
 import { getProducts, deleteProduct } from "./apiAdmin";
+import Showimage from "../core/ShowImage";
 
 const ManageProducts = () => {
   const [products, setProducts] = useState([]);
@@ -39,28 +40,50 @@ const ManageProducts = () => {
       description="Perform CRUD on products"
       className="container-fluid"
     >
-      <div className="row">
-        <div className="col-12">
-          <h2 className="text-center">Total {products.length} Products</h2>
-          <hr />
-          <ul className="list-group">
-            {products.map((p, i) => (
-              <li className="list-group-items d-flex justify-content-between align-items-center">
-                <strong>{p.name}</strong>
-                <Link to={`/admin/products/update/${p._id}`}>
-                  <span className="badge badge-warning badge-pill">Update</span>
-                </Link>
-                <span
-                  onClick={() => {
-                    removeProduct(p._id);
-                  }}
-                  className="badge badge-danger badge-pill"
-                >
-                  Delete
-                </span>
-              </li>
-            ))}
-          </ul>
+      <div className="row ">
+        <div className="offset-3 col-6">
+          <table class="table table-bordered table-light">
+            <tbody>
+              {products.map((p, i) => (
+                <tr>
+                  <td>
+                    <div className="row">
+                      <div className="col-6">{p.name}</div>
+                      <div className="col-6">
+                        <Showimage
+                          item={p}
+                          url="product"
+                          customImage={true}
+                          customImageSize={50}
+                        />
+                      </div>
+                    </div>
+                  </td>
+
+                  <td>
+                    <Link to={`/admin/products/update/${p._id}`}>
+                      <button className="btn-xs btn-warning ">Update</button>
+                    </Link>
+                  </td>
+                  <td>
+                    <button
+                      onClick={() => {
+                        if (
+                          window.confirm(
+                            "Are you sure you want to delete this item?"
+                          )
+                        )
+                          removeProduct(p._id);
+                      }}
+                      className="btn-xs btn-danger"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </Layout>

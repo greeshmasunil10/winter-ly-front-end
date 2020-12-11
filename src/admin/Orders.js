@@ -39,7 +39,7 @@ const Orders = () => {
   const showOrdersLength = () => {
     if (orders.length > 0) {
       return (
-        <h1 className="text-danger display-2 ">
+        <h1 className="text-danger display-4 ">
           Total orders: {orders.length}
         </h1>
       );
@@ -49,7 +49,7 @@ const Orders = () => {
   };
 
   const showInput = (key, value) => (
-    <div className="input-group mb-2 mr-sm-2">
+    <div className="input-group mb-1 mr-sm-2">
       <div className="input-group-prepend">
         <div className="input-group-text">{key}</div>
       </div>
@@ -69,24 +69,47 @@ const Orders = () => {
     );
   };
 
-  const showStatus = (order) => (
-    <div className="form-group">
-      <h3 className="mark mb-4">{order.status}</h3>
-      <select
-        className="form-control"
-        onChange={(e) => {
-          handleStatusChange(e, order._id);
-        }}
-      >
-        <option>Update Status</option>
-        {statusValues.map((status, sIndex) => (
-          <option key={sIndex} value={status}>
-            {status}
-          </option>
-        ))}
-      </select>
-    </div>
-  );
+  const showStatus = (order) => {
+    let alertStyle = "alert alert-info mb-4";
+    switch (order.status) {
+      case "Delivered":
+        alertStyle = "alert alert-success mb-4";
+        break;
+      case "Not processed":
+        alertStyle = "alert alert-warning mb-4";
+        break;
+      case "Processing":
+        alertStyle = "alert alert-primary mb-4";
+        break;
+      case "Cancelled":
+        alertStyle = "alert alert-danger mb-4";
+        break;
+      case "Shipped":
+        alertStyle = "alert alert-secondary mb-4";
+        break;
+
+      default:
+        break;
+    }
+    return (
+      <div className="form-group">
+        <h3 className={alertStyle}>{order.status}</h3>
+        <select
+          className="form-control"
+          onChange={(e) => {
+            handleStatusChange(e, order._id);
+          }}
+        >
+          <option>Update Status</option>
+          {statusValues.map((status, sIndex) => (
+            <option key={sIndex} value={status}>
+              {status}
+            </option>
+          ))}
+        </select>
+      </div>
+    );
+  };
 
   return (
     <Layout
@@ -99,45 +122,49 @@ const Orders = () => {
           {orders.map((o, oindex) => {
             return (
               <div
-                className="mt-5"
+                className="mt-5 m-3"
                 key={oindex}
-                style={{ borderBottom: "5px solid indigo" }}
+                style={{
+                  padding: "20px",
+                  border: "1px solid indigo",
+                  borderBottom: "1px solid indigo",
+                }}
               >
                 <h1 className="mb-5 bg-secondary text-light">
                   <span>Order ID:{o._id}</span>
                 </h1>
-                <ul className="list-group mb-2">
+                <ul className="list-group mb-2 m-3">
                   <li className="list-group-item">{showStatus(o)}</li>
                   <li className="list-group-item">
                     Transaction ID: {o.transaction_id}
                   </li>
                   <li className="list-group-item">Amount: ${o.amount}</li>
-                  <li className="list-group-item">Ordered By: {o.user.name}</li>
                   <li className="list-group-item">
-                    Ordered {moment(o.createdAt).fromNow()}
+                    Customer Name: {o.user.name}
                   </li>
                   <li className="list-group-item">
                     Delivery Address: {o.address}
                   </li>
+                  <li className="list-group-item">
+                    Ordered {moment(o.createdAt).fromNow()}
+                  </li>
                 </ul>
-                <h3 className="mt-4 mb-4 font-italic">
-                  Total products in the order: {o.products.length}
-                </h3>
-                {o.products.map((p, pindex) => (
-                  <div
-                    className="mb-4"
-                    key={pindex}
-                    style={{
-                      padding: "20px",
-                      border: "1px solid indigo",
-                    }}
-                  >
-                    {showInput("Product name", p.name)}
-                    {showInput("Product price", p.price)}
-                    {showInput("Product quantity", p.count)}
-                    {showInput("Product ID", p._id)}
-                  </div>
-                ))}
+                <div className="m-3">
+                  <h4 className="mt-4 mb-4">
+                    Total items in the order: {o.products.length}
+                  </h4>
+                  <h5>
+                    Order Amount: <t className="text-danger">CDN${o.amount}</t>
+                  </h5>
+                  {o.products.map((p, pindex) => (
+                    <div className="mb-4 flex border" key={pindex}>
+                      {showInput("Name", p.name)}
+                      {showInput("Price", p.price)}
+                      {showInput("Qty", p.count)}
+                      {showInput("ID", p._id)}
+                    </div>
+                  ))}
+                </div>
               </div>
             );
           })}

@@ -2,9 +2,12 @@
  Single product page
 */
 .name {
-  background: #2dbe95;
-  color: white;
+  background: rgba(14, 8, 8, 0.836);
+  color: rgba(255, 255, 255, 0.911);
   font-weight: bold;
+}
+.card {
+  min-height: 450px;
 }
 
 .cart-badge,
@@ -13,6 +16,7 @@
   padding: 2px;
   font-size: 12px;
   font-style: italic;
+  font-weight: bold;
   color: black;
   background: white;
 }
@@ -44,31 +48,12 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-/* black shade form 10-1 */
-.black-10 {
-  background: #f2f2f2;
-}
-.black-9 {
-  background: #e6e6e6;
-}
-.black-8 {
-  background: #d9d9d9;
-}
-.black-7 {
-  background: #cccccc;
-}
-.black-6 {
-  background: #bfbfbf;
-}
-.black-5 {
-  background: #b3b3b3;
-}
 
 .jumbotron {
   width: 30wh;
   height: 30vh;
   color: #fff;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background: linear-gradient(-45deg, #000000, #3613b4, #d5d223, #03cce6);
   background-size: 400% 400%;
   -webkit-animation: Gradient 15s ease infinite;
   -moz-animation: Gradient 15s ease infinite;

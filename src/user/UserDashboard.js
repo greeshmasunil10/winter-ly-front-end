@@ -29,7 +29,7 @@ const Dashboard = () => {
 
   const userLinks = () => {
     return (
-      <div className="card">
+      <div className="card mb-3">
         <h4 className="card-header">User Links</h4>
         <ul class="list-group">
           <li className="list-group-item">
@@ -68,20 +68,40 @@ const Dashboard = () => {
           {history.map((order, oIndex) => {
             {
               return (
-                <div>
-                  <hr />
-                  {order.products.map((prod, pIndex) => {
-                    return (
-                      <div key={pIndex}>
-                        <p></p>
-                        <h6>Product: {prod.name}</h6>
-                        <h6>Price: {prod.price}</h6>
-                        <h6>
-                          Purchase Date: {moment(prod.createdAt).fromNow()}
-                        </h6>
-                      </div>
-                    );
-                  })}
+                <div className="flex border m-4">
+                  <div className="ml-4">
+                    <br />
+                    <h4>
+                      Order No.<t className="text-primary">{order._id}</t>
+                    </h4>
+                    <hr />
+                    <h5 className="text-info">{order.status}</h5>
+                    <hr />
+                    {order.products.map((prod, pIndex) => {
+                      return (
+                        <div key={pIndex}>
+                          <p></p>
+                          <div className="row">
+                            <div className="col-8">
+                              <h5 className="text-dark"> {prod.name}</h5>
+                              <h6 className="text-muted">
+                                Price: CDN${prod.price}
+                              </h6>
+                            </div>
+                            <div className="col-4">
+                              <p>Qty:{prod.count}</p>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                    Purchased {moment(order.createdAt).fromNow()}
+                    <h4 className="mt-2">
+                      Order Total:
+                      <t className="text-danger"> CDN${order.amount}</t>
+                    </h4>
+                    <hr />
+                  </div>
                 </div>
               );
             }
@@ -98,8 +118,8 @@ const Dashboard = () => {
       className="container"
     >
       <div className="row">
-        <div className="col-3">{userLinks()}</div>
-        <div className="col-9">
+        <div className="col-md-3">{userLinks()}</div>
+        <div className="col-md-9">
           {userInfo()}
           {purchaseHistory(history)}
         </div>

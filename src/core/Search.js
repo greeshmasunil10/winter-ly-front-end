@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 import Layout from "./Layout";
 import { getCategories, list } from "./apiCore";
@@ -84,7 +84,7 @@ const Search = () => {
           />
         </div>
         <div className="btn input-group-append" style={{ border: "none" }}>
-          <button className="input-group-text">Search</button>
+          <button className="btn input-group-text">Search</button>
         </div>
       </span>
     </form>
@@ -106,7 +106,9 @@ const Search = () => {
       </h3>
       <div className="row">
         {results.map((product, index) => (
-          <Card key={index} product={product} />
+          <div className="col-4 mb-3">
+            <Card key={index} product={product} />
+          </div>
         ))}
       </div>
     </div>

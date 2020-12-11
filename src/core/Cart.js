@@ -21,15 +21,17 @@ const Cart = () => {
         <h3>You cart has {`${items.length}`} items</h3>
         <hr />
         {items.map((product, index) => (
-          <Card
-            key={index}
-            product={product}
-            showAddtoCartButton={false}
-            quantityUpdate={true}
-            showRemoveProductButton={true}
-            setRun={setRun}
-            run={run}
-          />
+          <div className="mb-2">
+            <Card
+              key={index}
+              product={product}
+              setRun={setRun}
+              run={run}
+              cartCard={true}
+              customImage={true}
+              customImageSize={200}
+            />
+          </div>
         ))}
       </div>
     );
@@ -39,7 +41,13 @@ const Cart = () => {
     <h2>
       Your cart is empty
       <br />
-      <Link to="/shop">Continue Shopping</Link>
+      <br />
+      <h4 className="ml-5">
+        <Link to="/shop" className="text-link">
+          Continue
+        </Link>{" "}
+        shopping
+      </h4>
     </h2>
   );
 

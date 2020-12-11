@@ -58,7 +58,7 @@ const Shop = () => {
     return (
       size > 0 &&
       size >= limit && (
-        <button onClick={loadMore} className="btn btn-warning mb-5">
+        <button onClick={loadMore} className="btn btn-success mb-5">
           Load more
         </button>
       )
@@ -100,7 +100,7 @@ const Shop = () => {
 
   return (
     <Layout
-      title="Shop Page"
+      title="Start Shopping"
       description="Check out our products"
       className="container-fluid"
     >
@@ -128,7 +128,7 @@ const Shop = () => {
             <h2 className="mb-4">Products</h2>
             <div className="row">
               {filteredResults.map((prod, index) => (
-                <div key={index} className="col-lg-4 col-sm ">
+                <div key={index} className="col-lg-4 col-sm mb-3">
                   <Card product={prod} />
                 </div>
               ))}

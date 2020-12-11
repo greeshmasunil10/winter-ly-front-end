@@ -8,6 +8,7 @@ import {
 } from "./apiCore";
 import DropIn from "braintree-web-drop-in-react";
 import { emptyCart } from "./cartHelpers";
+import { parse } from "query-string";
 
 const Checkout = ({ products, setRun = (f) => f, run = undefined }) => {
   const [data, setData] = useState({
@@ -36,12 +37,19 @@ const Checkout = ({ products, setRun = (f) => f, run = undefined }) => {
     getToken(userId, token);
   }, []);
 
-  const getTotal = () => {
+  const getItemTotal = () => {
     return products
       .reduce((currentValue, nextValue) => {
         return currentValue + nextValue.count * nextValue.price;
       }, 0)
       .toFixed(2);
+  };
+  const getTax = () => {
+    return ((parseFloat(getItemTotal()) * 13) / 100).toFixed(2);
+  };
+  const getTotal = () => {
+    console.log("total:", getItemTotal());
+    return (parseFloat(getTax()) + parseFloat(getItemTotal())).toFixed(2);
   };
   const showCheckoutButton = () => {
     return isAuthenticated() ? (
@@ -110,12 +118,12 @@ const Checkout = ({ products, setRun = (f) => f, run = undefined }) => {
       {data.clientToken !== null && products.length > 0 ? (
         <div>
           <div className="form-group mb-3">
-            <label className="text-muted">Delivery address:</label>
+            <label className="">Delivery address:</label>
             <textarea
               onChange={handleAddress}
               className="form-control"
               // value={data.address}
-              placeholder="Enter your Delivery address here"
+              placeholder="Enter your delivery address here"
             />
           </div>
           <DropIn
@@ -155,7 +163,22 @@ const Checkout = ({ products, setRun = (f) => f, run = undefined }) => {
 
   return (
     <div>
-      <h2>Total: ${getTotal()}</h2>
+      <div className="flex border mb-3">
+        <div className="m-3">
+          <h6>
+            Items:<t className="float-right mr-3"> CDN${getItemTotal()}</t>
+          </h6>
+          <h6>
+            Estimated GST/HST:
+            <t className="float-right mr-3"> CDN${getTax()}</t>
+          </h6>
+          {/* <h6>Estimated GST/HST: ${getTax()}</h6> */}
+          <h2 className="text-primary">
+            Order Total:
+            <t className="float-right mr-3"> CDN${getTotal()}</t>$
+          </h2>
+        </div>
+      </div>
       {showError(data.error)}
       {showLoading(data.loading)}
       {showSuccess(data.success)}

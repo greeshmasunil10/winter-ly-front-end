@@ -47,7 +47,7 @@ export const getCategories = () => {
 };
 
 export const listOrders = (userId, token) => {
-  return fetch(`${API}/orders/list/${userId}`, {
+  return fetch(`${API}/orders/list/${userId}?orderBy=desc`, {
     method: "GET",
     headers: {
       Accept: "application/json",

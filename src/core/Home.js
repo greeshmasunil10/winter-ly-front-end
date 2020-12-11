@@ -35,14 +35,14 @@ const Home = () => {
   }, []);
   return (
     <Layout
-      title="Winter Store"
-      description="An eCommerce App"
+      title="Shop Winter Accessories"
+      description="Home"
       className="container-fluid"
     >
       <Search />
       <hr />
       <h2 className="mb-4 ml-4 rainbow-text">Best Sellers</h2>
-      <div className="row container-fluid m-4">
+      <div className="container-fluid row m-4">
         {productsBySale.map((prod, index) => (
           <div key={index} className="col-lg-3 col-sm mb-3">
             <Card product={prod} />

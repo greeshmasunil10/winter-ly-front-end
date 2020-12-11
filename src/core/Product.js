@@ -38,26 +38,26 @@ const Product = (props) => {
       className="container-fluid"
     >
       <div className="row">
-        <div className="col-8">
+        <div className="col-8 mb-5">
           {product && product.description && (
             <Card
               product={product}
-              showViewProductButton={false}
               customImage={true}
-              customImageSize={500}
+              customImageSize={550}
+              detailedCard={true}
             />
           )}
         </div>
         <div className="col-4">
           <h4
             className="text-muted"
-            // style={{ display: relatedProduct.length > 0 ? "" : "none" }}
+            style={{ display: relatedProduct.length > 0 ? "" : "none" }}
           >
             You may also like
           </h4>
           {relatedProduct.map((prod, i) => (
             <div key={i} className="mb-3">
-              <Card product={prod} />
+              <Card product={prod} relatedProduct={true} />
             </div>
           ))}
         </div>
