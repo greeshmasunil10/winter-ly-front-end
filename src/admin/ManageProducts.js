@@ -41,7 +41,7 @@ const ManageProducts = () => {
       className="container-fluid"
     >
       <div className="row ">
-        <div className="offset-3 col-6">
+        <div className="offset-md-3 col-md-6">
           <table class="table table-bordered table-light">
             <tbody>
               {products.map((p, i) => (

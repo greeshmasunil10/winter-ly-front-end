@@ -6,10 +6,11 @@ const ShowImage = ({ item, url, customImage, customImageSize }) => (
     <img
       src={`${API}/${url}/photo/${item._id}`}
       alt={item.name}
-      className="mb-3 "
+      className="mb-3 card-img-top"
       style={{
-        minHeight: customImage ? `${parseInt(customImageSize)}px` : "300px",
+        // minHeight: customImage ? `100%` : "300px",
         maxWidth: customImage ? `${parseInt(customImageSize)}px` : "260px",
+        resizeMode: "contain",
       }}
     />
   </Fragment>

@@ -78,7 +78,7 @@ const AddCategory = () => {
     >
       <div className="row">
         <div className="col-md-8 offset-md-2"></div>
-        <div className="col-md-8 offset-md-2">
+        <div className="col-md-8 offset-md-2 offset-2 col-9">
           {showSuccess()}
           {showError()}
           {newCategoryForm()}

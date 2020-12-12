@@ -38,7 +38,7 @@ const Product = (props) => {
       className="container-fluid"
     >
       <div className="row">
-        <div className="col-8 mb-5">
+        <div className="col-md-8 mb-5">
           {product && product.description && (
             <Card
               product={product}
@@ -48,7 +48,7 @@ const Product = (props) => {
             />
           )}
         </div>
-        <div className="col-4">
+        <div className="col-md-4 col-sm-12">
           <h4
             className="text-muted"
             style={{ display: relatedProduct.length > 0 ? "" : "none" }}
