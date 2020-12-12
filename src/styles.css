@@ -6,9 +6,9 @@
   color: rgba(255, 255, 255, 0.911);
   font-weight: bold;
 }
-.card {
+/* .card {
   min-height: 450px;
-}
+} */
 
 .cart-badge,
 .cart-badge:hover {

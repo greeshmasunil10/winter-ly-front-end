@@ -67,7 +67,7 @@ const Card = ({
 
   const doRedirect = (redirect) => {
     if (redirect) {
-      return <Redirect to="/cart" />;
+      return <p className="alert alert-warning">Added to cart!</p>;
     }
   };
 
@@ -196,7 +196,6 @@ const Card = ({
   return (
     <div className="card">
       <div className="card-body flex-fill">
-        {doRedirect(redirect)}
         <Showimage
           item={product}
           url="product"
@@ -213,6 +212,7 @@ const Card = ({
           </sup>
           {product.price}
         </h6>{" "}
+        {doRedirect(redirect)}
         {viewProductButton()}
         {addToCartButton()}
       </div>
