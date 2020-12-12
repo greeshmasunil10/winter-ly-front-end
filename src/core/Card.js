@@ -127,7 +127,7 @@ const Card = ({
       <div className="card ">
         <div className="card-body">
           <div className="row">
-            <div className="col-4">
+            <div className="col-md-4">
               {doRedirect(redirect)}
               <Showimage
                 item={product}
@@ -136,7 +136,7 @@ const Card = ({
                 customImageSize={customImageSize}
               />
             </div>
-            <div className="col-8">
+            <div className="col-md-8">
               <h6 className="Lead">{product.name}</h6>
               <p className="lead text-danger font-weight-bold">
                 CDN${product.price}
@@ -160,7 +160,7 @@ const Card = ({
         <div className="card-header name ">{product.name}</div>
         <div className="card-body">
           <div className="row">
-            <div className="col-8">
+            <div className="col-md-8">
               {doRedirect(redirect)}
               <Showimage
                 item={product}
@@ -169,7 +169,7 @@ const Card = ({
                 customImageSize={customImageSize}
               />
             </div>
-            <div className="col-4">
+            <div className="col-md-4">
               <p className="lead mt-2">
                 {product.description.substring(0, 100)}
               </p>

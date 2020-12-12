@@ -58,10 +58,10 @@ const Cart = () => {
       className="container-fluid"
     >
       <div className="row">
-        <div className="col-6">
+        <div className="col-md-6">
           {items.length > 0 ? showItems(items) : noItemsMessage()}
         </div>
-        <div className="col-6">
+        <div className="col-md-6">
           <h2 className="mb-4">Your cart summary</h2>
           <hr />
           <Checkout products={items} setRun={setRun} run={run} />

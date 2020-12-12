@@ -174,7 +174,7 @@ const Checkout = ({ products, setRun = (f) => f, run = undefined }) => {
           </h6>
           {/* <h6>Estimated GST/HST: ${getTax()}</h6> */}
           <h2 className="text-primary">
-            Order Total:
+            Total:
             <t className="float-right mr-3"> CDN${getTotal()}</t>$
           </h2>
         </div>
