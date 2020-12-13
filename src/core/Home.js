@@ -35,8 +35,8 @@ const Home = () => {
   }, []);
   return (
     <Layout
-      title="Shop Winter Accessories"
-      description="An e-commerce Web Application Project"
+      title="An e-commerce platform"
+      description="Shop Winter Accessories"
       className="container-fluid"
     >
       <Search />
