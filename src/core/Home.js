@@ -36,7 +36,7 @@ const Home = () => {
   return (
     <Layout
       title="Shop Winter Accessories"
-      description="Home"
+      description="An e-commerce Web Application Project"
       className="container-fluid"
     >
       <Search />

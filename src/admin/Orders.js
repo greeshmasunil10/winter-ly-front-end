@@ -121,7 +121,7 @@ const Orders = () => {
           {orders.map((o, oindex) => {
             return (
               <div
-                className="mt-5 m-3"
+                className="mt-5 m-3 "
                 key={oindex}
                 style={{
                   padding: "20px",
@@ -129,9 +129,9 @@ const Orders = () => {
                   borderBottom: "1px solid indigo",
                 }}
               >
-                <h1 className="mb-5 bg-secondary text-light">
-                  <span>Order ID:{o._id}</span>
-                </h1>
+                <h3 className="mb-5 bg-secondary text-light">
+                  <p className="mr-3"> Order ID:{o._id}</p>
+                </h3>
                 <ul className="list-group mb-2 m-3">
                   <li className="list-group-item">{showStatus(o)}</li>
                   <li className="list-group-item">
