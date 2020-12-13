@@ -1,6 +1,6 @@
-# Winterly Frontend :snowflake: http://winter-ly.com/ :snowflake:
+# :snowflake: [Winterly](http://winter-ly.com/) :snowflake: Frontend 
 
-## What is Winterly?
+## What is Winterly:grey_question:
 * An ecommerce platform to sell online. The frontend is developed using React (create-react-app) and Bootstrap 4.
 
 ## Deployed
