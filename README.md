@@ -4,7 +4,7 @@
 * An ecommerce platform to sell online. The frontend is developed using React (create-react-app) and Bootstrap 4.
 
 ## Deployed
-* The functional ecommerce web application "Winterly" , is deployed to Digital ocean. 
+* The fully functional ecommerce web application "Winterly" , is deployed to Digital ocean. 
 * To view : http://winter-ly.com/
 
 ## Tools and Technologies
