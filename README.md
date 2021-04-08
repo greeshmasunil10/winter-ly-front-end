@@ -1,7 +1,7 @@
 # :snowflake: [Winterly](http://winter-ly.com/) :snowflake: Frontend 
 
 ## What is Winterly:grey_question:
-* An ecommerce platform to sell online. The frontend is developed using React (create-react-app) and Bootstrap 4.
+* An ecommerce platform to sell online. The frontend is developed using React and Bootstrap 4.
 
 ## Deployed
 * The fully functional ecommerce web application "Winterly" , is deployed to Digital ocean. 
