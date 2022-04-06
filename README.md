@@ -5,7 +5,6 @@
 
 ## Screenshots
 
-
 ![Sign in](https://github.com/greeshmasunil10/winter-ly-front-end/blob/master/images/Sign%20in.png)
 ![View Product](https://github.com/greeshmasunil10/winter-ly-front-end/blob/master/images/Product.png)
 ![Search](https://github.com/greeshmasunil10/winter-ly-front-end/blob/master/images/localhost_3000_shop%20(9).png)
