@@ -1,6 +1,6 @@
-# :snowflake: [Winterly](https://winter-ly.herokuapp.com/) :snowflake: Frontend 
+# :snowflake: [Winterly](http://www.winter-ly.com/) :snowflake: Frontend 
 
-## Click [here](https://winter-ly.herokuapp.com/) to view the live web application deployed on heroku
+## Click [winter-ly.com](http://www.winter-ly.com/) to view the live web application deployed on heroku
 
 ## What is Winterly:grey_question:
 * An ecommerce platform to sell online. The frontend is developed using React and Bootstrap 4.
