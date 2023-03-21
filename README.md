@@ -1,4 +1,8 @@
 # [Winterly](https://winter-ly.herokuapp.com/) (front-end demo)
+![GitHub top language](https://img.shields.io/github/languages/top/greeshmasunil10/winter-ly-front-end)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/greeshmasunil10/winter-ly-front-end/blob/master/LICENSE)
+![GitHub last commit](https://img.shields.io/github/last-commit/greeshmasunil10/winter-ly-front-end)
+
 
 Winterly is an e-commerce platform that enables businesses to sell their products and services online. The backend of the platform is implemented using REST API with Node.js and Express, while the database is handled using MongoDB. The payment gateway used for credit card and PayPal payment processing is Braintree. Additionally, user credentials are stored securely using SHA-1 one-way encryption.
 
@@ -30,11 +34,11 @@ To use Winter-ly, follow these steps:
 
 If you're a business owner interested in listing your products on Winter-ly, you can sign up for a business account by contacting us. Once you've signed up, we'll create an admin account for you that will allow you to manage your listed products, update order status, and more. As an admin, you'll have full control over your products and orders, giving you the flexibility to tailor your offerings to meet your customers' needs.
 
-##:hammer_and_wrench: Tools and Technologies
+## :hammer_and_wrench: Tools and Technologies
 
 Winterly's front-end is created using React and Bootstrap
 
-##:camera: Snapshots
+## :camera: Snapshots
 
 ![Sign in](https://github.com/greeshmasunil10/winter-ly-front-end/blob/master/images/Sign%20in.png)
 ![View Product](https://github.com/greeshmasunil10/winter-ly-front-end/blob/master/images/Product.png)
